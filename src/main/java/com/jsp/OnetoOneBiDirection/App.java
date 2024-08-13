@@ -12,12 +12,19 @@ public class App
         Pancard pancard=new Pancard();
         PersonDao personDao=new PersonDao();
         
-        person.setName("Krishna");
+//        person.setName("Krishna");
+//        person.setAddress("Gujurat");
+//        
+//        pancard.setName("Guju1232d ");
+//        
+//        person.setPancard(pancard);
+//        personDao.savePerson(person);
+        
+        person.setId(1);
+        person.setName("Radha");
         person.setAddress("Gujurat");
-        
-        pancard.setName("Guju1232d ");
-        
+        pancard.setPanid(1);
         person.setPancard(pancard);
-        personDao.savePerson(person);
+        personDao.updatePerson(1, person);
     }
 }
