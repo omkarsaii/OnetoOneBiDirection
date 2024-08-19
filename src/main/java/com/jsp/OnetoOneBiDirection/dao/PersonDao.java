@@ -30,4 +30,20 @@ public class PersonDao {
 		
 	}
 	
+	public void updateperson(int id,Person person)
+	{
+		EntityManager entityManager=getEntityManager();
+		EntityTransaction entityTransaction=entityManager.getTransaction();
+		
+		Person person1=entityManager.find(Person.class,id);
+		
+		if(person1!=null)
+		{
+			person.setId(id);
+		}
+		entityTransaction.begin();
+		entityManager.merge(person);
+		entityTransaction.commit();
+	}
+	
 }
