@@ -39,11 +39,20 @@ public class PersonDao {
 		
 		if(person1!=null)
 		{
+			entityTransaction.begin();
 			person.setId(id);
+			
+			Pancard pancard=person.getPancard();   
+			
+			if(pancard!=null)
+			{
+				entityManager.merge(pancard) ;
+			}
+			entityManager.merge(person);
+			entityTransaction.commit();
 		}
-		entityTransaction.begin();
 		entityManager.merge(person);
 		entityTransaction.commit();
 	}
-	
+	///hiber/OnetoOneBiDirection/src/main/java/com/jsp/OnetoOneBiDirection/dao
 }
